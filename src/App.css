@@ -97,3 +97,14 @@ body {
 .social-links a:hover {
   text-decoration: underline;
 }
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}

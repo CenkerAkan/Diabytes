@@ -228,6 +228,9 @@ const App = () => {
             Access our detailed project reports and documentation <a href="#reports">here</a>.
           </p>
         </section>
+        <footer className="footer">
+          Diabytes © 2024
+        </footer>
       </div>
     </div>
   );
