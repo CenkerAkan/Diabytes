@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.canvas {
+  display: block; /* Removes inline-block spacing */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Canvas stays in the background */
+}
+
+.overlay {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.title {
+  font-size: 5rem;
+  opacity: 0; /* Will fade in with GSAP */
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Ensure content is above the canvas */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #111);
+  padding: 2rem 2rem; /* Adjusted padding to make content easily viewable */
+}
+
+.content section {
+  margin: 4rem 0;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content p, .content ul {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.content a {
+  color: #00adee;
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+.team-section {
+  padding: 2rem;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.team-member {
+  background: #222;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  color: #fff;
+}
+
+.member-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0.5rem;
+  color: #00adee;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
