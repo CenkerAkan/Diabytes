@@ -79,11 +79,13 @@ body {
 }
 
 .member-photo {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+  width: 150px; /* Set a consistent width */
+  height: 150px; /* Set a consistent height */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+  border-radius: 50%; /* Keeps the circular profile style */
+  overflow: hidden; /* Ensures no overflow if the image is larger */
 }
+
 
 .social-links a {
   display: inline-block;

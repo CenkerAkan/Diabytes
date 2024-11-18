@@ -189,8 +189,8 @@ const App = () => {
               <h3>Umut Can Bolat</h3>
               <p>Role: ML Model Developer</p>
               <div className="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/umut-can-bolat-0ab877218/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/UmutCan00" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
             <div className="team-member">
@@ -212,12 +212,12 @@ const App = () => {
               </div>
             </div>
             <div className="team-member">
-              <img src="https://via.placeholder.com/150" alt="Ahmet Tarık Uçur" className="member-photo" />
+              <img src={`${process.env.PUBLIC_URL}/tarik.jpeg`} alt="Ahmet Tarık Uçur" className="member-photo" />
               <h3>Ahmet Tarık Uçur</h3>
               <p>Role: Mobile Developer</p>
               <div className="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/ahmet-tar%C4%B1k-u%C3%A7ur-0a6835261/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/Tarikucur" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </div>
