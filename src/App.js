@@ -142,7 +142,9 @@ const App = () => {
     const handleWheel = (event) => {
       // Update progress based on mouse wheel delta
       const scrollFactor = 0.001; // Decrease to slow down progress, around 10 scrolls for full effect
-      const newProgress = Math.min(Math.max(progress + event.deltaY * scrollFactor, 0), 1);
+      let deltaY = event.deltaY;
+      deltaY = Math.max(Math.min(deltaY, 8), -8); // Clamp the delta to a reasonable value
+      const newProgress = Math.min(Math.max(progress + deltaY * scrollFactor, 0), 1);
       setProgress(newProgress);
 
       // Allow scroll up but prevent scroll down until animation is complete
