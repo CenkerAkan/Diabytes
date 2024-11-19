@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Diabytes/static/css/main.97d07843.css",
-    "main.js": "/Diabytes/static/js/main.0c1a7381.js",
+    "main.js": "/Diabytes/static/js/main.81a75a4a.js",
     "static/js/453.ed3810f9.chunk.js": "/Diabytes/static/js/453.ed3810f9.chunk.js",
     "index.html": "/Diabytes/index.html",
     "main.97d07843.css.map": "/Diabytes/static/css/main.97d07843.css.map",
-    "main.0c1a7381.js.map": "/Diabytes/static/js/main.0c1a7381.js.map",
+    "main.81a75a4a.js.map": "/Diabytes/static/js/main.81a75a4a.js.map",
     "453.ed3810f9.chunk.js.map": "/Diabytes/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.97d07843.css",
-    "static/js/main.0c1a7381.js"
+    "static/js/main.81a75a4a.js"
   ]
 }
