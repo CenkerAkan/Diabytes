@@ -178,12 +178,12 @@ const App = () => {
           <h2>Team Members</h2>
           <div className="team-members">
             <div className="team-member">
-              <img src="https://via.placeholder.com/150" alt="Cenker Akan" className="member-photo" />
+              <img src={`${process.env.PUBLIC_URL}/cenker.png`} alt="Cenker Akan" className="member-photo" />
               <h3>Cenker Akan</h3>
               <p>Role: ML Model Developer</p>
               <div className="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/cenker-akan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/CenkerAkan" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
             <div className="team-member">
@@ -196,21 +196,21 @@ const App = () => {
               </div>
             </div>
             <div className="team-member">
-              <img src="https://via.placeholder.com/150" alt="Umut Bora Çakmak" className="member-photo" />
+              <img src={`${process.env.PUBLIC_URL}/bora.jpeg`} alt="Umut Bora Çakmak" className="member-photo" />
               <h3>Umut Bora Çakmak</h3>
               <p>Role: Mobile Developer</p>
               <div className="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/umut-bora-%C3%A7akmak-a0931a232/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/UBoraCakmak" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
             <div className="team-member">
-              <img src="https://via.placeholder.com/150" alt="Perit Dinçer" className="member-photo" />
+              <img src={`${process.env.PUBLIC_URL}/perit.jpeg`} alt="Perit Dinçer" className="member-photo" />
               <h3>Perit Dinçer</h3>
               <p>Role: Mobile Developer</p>
               <div className="social-links">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/perit-din%C3%A7er-5a17b5238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/perit-dincer" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
             <div className="team-member">
