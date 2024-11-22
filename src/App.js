@@ -226,9 +226,36 @@ const App = () => {
         </section>
         <section className="reports-section">
           <h2>Reports</h2>
-          <p>
-            Access our detailed project reports and documentation <a href="#reports">here</a>.
-          </p>
+          <p>Access our detailed project reports and documentation below:</p>
+          <ul className="reports-list">
+            {/* <li>
+              <a
+                href="https://docs.google.com/document/d/your-doc-id-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Project Information Form
+              </a>
+            </li> */}
+            <li>
+              <a
+                href="https://docs.google.com/document/d/1SXd79ncur9BIsQeZjlSN9uKCUi-MdaoEnNobduG1hZs/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Project Specification Document
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.google.com/document/d/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Analysis and Requirements Report 
+              </a>
+            </li>
+          </ul>
         </section>
         <footer className="footer">
           Diabytes © 2024

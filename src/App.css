@@ -108,3 +108,28 @@ body {
   margin-top: 2rem;
   font-size: 1.3rem;
 }
+/*reports section */
+.reports-section {
+  margin: 4rem 0;
+}
+
+.reports-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reports-list li {
+  margin: 0.5rem 0;
+}
+
+.reports-list a {
+  color: #00adee;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.reports-list a:hover {
+  text-decoration: underline;
+  color: #00bfff;
+}
+
