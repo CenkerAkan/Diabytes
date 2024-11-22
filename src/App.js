@@ -171,7 +171,25 @@ const App = () => {
         <section className="about-section">
           <h2>About the Project</h2>
           <p>
-            Diabytes is a mobile app that predicts insulin doseage for diabetic patient only based on meal image. Take a photo of your meal and let Diabytes predict the insulin dose for you!
+            Diabytes is a user-friendly app designed 
+            to make life easier for people with diabetes
+            by calculating nutritional contents of the meal and 
+            helping them manage their insulin doses.
+            <br/>
+            Instead of manually calculating carbs of the meal
+            and the corresponding insulin dose, 
+            you can simply take a photo of your meal, 
+            and the app uses machine learning models 
+            to figure out the nutritional content.
+            It then recommends a 
+            personalized insulin dose based on your 
+            unique data and past glucose trends. 
+            The app learns and improves over time, 
+            making predictions more accurate as the time goes. 
+            With an easy-to-use interface and reliable
+            predictions, Diabytes takes the stress out of 
+            diabetes management, giving users more freedom
+            and confidence in their daily routines.
           </p>
         </section>
         <section className="team-section">
