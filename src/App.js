@@ -266,7 +266,7 @@ const App = () => {
             </li>
             <li>
               <a
-                href="https://docs.google.com/document/d/"
+                href="https://docs.google.com/document/d/1lfy8CmDhiVD6M-0cwDpgxRUsEAkZjOMl/edit?usp=sharing&ouid=101150397014355303939&rtpof=true&sd=true"
                 target="_blank"
                 rel="noopener noreferrer"
               >
