@@ -171,25 +171,22 @@ const App = () => {
         <section className="about-section">
           <h2>About the Project</h2>
           <p>
-            Diabytes is a user-friendly app designed 
-            to make life easier for people with diabetes
-            by calculating nutritional contents of the meal and 
-            helping them manage their insulin doses.
+            Most people don't need to estimate a meal's nutritional
+            value accurately, but for those with diabetes, this is 
+            another day. In a world where finding insulin dosage 
+            from a meal feels like a guessing game, Diabytes steps 
+            in with a precise way to handle daily diabetes routines.
             <br/>
-            Instead of manually calculating carbs of the meal
-            and the corresponding insulin dose, 
-            you can simply take a photo of your meal, 
-            and the app uses machine learning models 
-            to figure out the nutritional content.
-            It then recommends a 
-            personalized insulin dose based on your 
-            unique data and past glucose trends. 
-            The app learns and improves over time, 
-            making predictions more accurate as the time goes. 
-            With an easy-to-use interface and reliable
-            predictions, Diabytes takes the stress out of 
-            diabetes management, giving users more freedom
-            and confidence in their daily routines.
+            By converting meal photos into nutrition values, it
+            simplifies carb counting and generates personalized 
+            insulin guidance without drowning users in numbers.
+            Under the hood, Diabytes applies machine learning and
+            image recognition to determine what's on the plate,
+            estimate macronutrients, and learn from glucose feedback.
+            As a result, diabetic people enjoy less confusion, fewer
+            errors, and more confidence at mealtimes. Ultimately, we
+            aim to turn diabetes management into a proactive,
+            data-driven experience.
           </p>
         </section>
         <section className="team-section">
