@@ -272,7 +272,7 @@ const App = () => {
             </li>
             <li>
               <a
-                href="https://docs.google.com/document/d/1lfy8CmDhiVD6M-0cwDpgxRUsEAkZjOMl/edit?usp=sharing&ouid=101150397014355303939&rtpof=true&sd=true"
+                href="https://docs.google.com/document/d/11h52YUk8MWLj6--R2pceSAV1s3lqN_EBs3_gBgY6tZU/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
