@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { FontLoader } from "three-stdlib";
 import helvetikerFont from "./helvetiker_regular.typeface.json";
@@ -7,6 +7,72 @@ import "./App.css";
 
 // Cubic ease-out function to slow down the progress as it approaches 1
 const easeOutCubic = (t) => (--t) * t * t + 1;
+
+const createStarTexture = () => {
+  const canvas = document.createElement('canvas');
+  const size = 64; // Texture size
+  canvas.width = size;
+  canvas.height = size;
+  const context = canvas.getContext('2d');
+  const centerX = size / 2;
+  const centerY = size / 2;
+  const radius = size / 2;
+
+  // Create a radial gradient: white center, fading to transparent
+  const gradient = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+  gradient.addColorStop(0, 'rgba(255,255,255,1)');    // Opaque white at the center
+  gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)'); // Fading out
+  gradient.addColorStop(0.5, 'rgba(255,255,255,0.3)'); // More transparent
+  gradient.addColorStop(1, 'rgba(255,255,255,0)');   // Fully transparent at the edges
+
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, size, size);
+  return new THREE.CanvasTexture(canvas);
+};
+
+const TrailEffect = ({ fadeColor = 0x1a1a1a, opacity = 0.2 }) => {
+  const { gl, camera, viewport } = useThree();
+
+  useEffect(() => {
+    const originalAutoClear = gl.autoClear;
+    gl.autoClear = false;
+    return () => {
+      gl.autoClear = originalAutoClear;
+    };
+  }, [gl]);
+
+  const planeMesh = useMemo(() => {
+    const geometry = new THREE.PlaneGeometry(1, 1); // Base size, will be scaled
+    const material = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(fadeColor),
+      transparent: true,
+      opacity: opacity,
+      depthWrite: false,
+      depthTest: false,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.frustumCulled = false; // Ensure it's always rendered
+    mesh.renderOrder = -1000; // Render very early
+    return mesh;
+  }, [fadeColor, opacity]);
+
+  useFrame(() => {
+    gl.clearDepth(); // Clear only the depth buffer for the new frame
+
+    // Position and scale the quad to fill the screen, just in front of the camera's near plane
+    const distance = camera.near + 0.001; // Slightly in front of the near plane
+    const vFOV = (camera.fov * Math.PI) / 180; // Vertical FOV in radians
+    const heightAtNear = 2 * Math.tan(vFOV / 2) * distance;
+    const widthAtNear = heightAtNear * viewport.aspect;
+
+    planeMesh.scale.set(widthAtNear, heightAtNear, 1);
+    planeMesh.position.copy(camera.position);
+    planeMesh.quaternion.copy(camera.quaternion);
+    planeMesh.translateZ(-distance); // Move it in front along camera's local Z axis
+  }, -1); // High priority for this frame callback
+
+  return <primitive object={planeMesh} />;
+};
 
 const createLetterShape = (text, fontSize = 1.3, spacing = 0.2) => {
   const fontLoader = new FontLoader();
@@ -44,6 +110,9 @@ const ParticleField = ({ progress, wordPositions }) => {
   const particles = useRef();
   const [randomPositions, setRandomPositions] = useState([]);
   const totalParticles = 5000;
+  const initialColor = useRef(new THREE.Color("#61dafb"));
+  const finalColor = useRef(new THREE.Color("#ffffff"));
+  const starTexture = useMemo(() => createStarTexture(), []);
 
   useEffect(() => {
     // Set up initial random positions for particles covering full screen height
@@ -63,6 +132,16 @@ const ParticleField = ({ progress, wordPositions }) => {
       // Apply easing to progress to slow down towards the end
       const easedProgress = easeOutCubic(progress);
 
+      // Update particle material color
+      if (particles.current.material) {
+        particles.current.material.color.lerpColors(initialColor.current, finalColor.current, easedProgress);
+        
+        // Dynamic sizing for "star pulse"
+        const activeSize = 0.3; // Larger size when active/swirling
+        const settledSize = 0.1; // Normal size when settled
+        particles.current.material.size = THREE.MathUtils.lerp(activeSize, settledSize, easedProgress);
+      }
+
       for (let i = 0; i < totalParticles * 3; i += 3) {
         const index = Math.floor(i / 3);
 
@@ -72,10 +151,20 @@ const ParticleField = ({ progress, wordPositions }) => {
         // Interpolate between random position and final letter position based on eased progress
         const lerpFactor = easedProgress; // Eased progress for a smoother transition towards the end
 
-        // Free movement with oscillation in the initial and converging stage
-        const randomX = start[0] + Math.sin(time + index) * 0.5 * (1 - lerpFactor);
-        const randomY = start[1] + Math.sin(time + index * 1.1) * 0.5 * (1 - lerpFactor);
-        const randomZ = start[2] + Math.sin(time + index * 1.2) * 0.5 * (1 - lerpFactor);
+        // Swirling movement for the initial phase
+        const swirlAmplitude = 1.5; // Increased amplitude for more visible swirl
+        const swirlSpeed = 0.5;     // Speed of the swirl
+
+        // The (1 - lerpFactor) term ensures the swirl diminishes as particles approach their final position.
+        const dynamicFactor = (1 - lerpFactor);
+
+        const dynamicOffsetX = Math.sin(time * swirlSpeed + index * 0.3) * swirlAmplitude * dynamicFactor;
+        const dynamicOffsetY = Math.cos(time * swirlSpeed + index * 0.3) * swirlAmplitude * dynamicFactor; // Using cos for circular motion in XY plane
+        const dynamicOffsetZ = Math.sin(time * swirlSpeed + index * 0.4) * swirlAmplitude * 0.5 * dynamicFactor; // Z swirls a bit differently/less
+
+        const randomX = start[0] + dynamicOffsetX;
+        const randomY = start[1] + dynamicOffsetY;
+        const randomZ = start[2] + dynamicOffsetZ;
 
         // Interpolating position to form logo progressively
         positionArray[i] = THREE.MathUtils.lerp(randomX, end[0], lerpFactor);
@@ -97,7 +186,14 @@ const ParticleField = ({ progress, wordPositions }) => {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial color="#ffffff" size={0.1} />
+      <pointsMaterial
+        map={starTexture}
+        color={initialColor.current.getHex()} // Initial color
+        size={0.3} // Initial size (activeSize)
+        transparent={true}
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+      />
     </points>
   );
 };
@@ -162,7 +258,8 @@ const App = () => {
 
   return (
     <div className="app">
-      <Canvas className="canvas">
+      <Canvas className="canvas" gl={{ preserveDrawingBuffer: true }}>
+        <TrailEffect opacity={0.15} /> {/* Lower opacity for longer trails, e.g., 0.15-0.25 */}
         <ResizeHandler />
         <ambientLight intensity={0.5} />
         <ParticleField progress={progress} wordPositions={wordPositions} />
@@ -238,7 +335,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/ahmet-tar%C4%B1k-u%C3%A7ur-0a6835261/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/Tarikucur" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://docs.google.com/document/d/1gunUc-973VoA2AXYn7bXP27eVtiUQWsReWrNUcNsZPo/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Logbook</a>
+                <a href="https://docs.google.com/document/d/1E57Nk9MlrkGYtwuBBA00Wk_uN-VgY7AaCvMD9vVXZTM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
           </div>
