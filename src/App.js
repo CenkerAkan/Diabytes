@@ -176,7 +176,6 @@ const App = () => {
             another day. In a world where finding insulin dosage 
             from a meal feels like a guessing game, Diabytes steps 
             in with a precise way to handle daily diabetes routines.
-            <br/>
             By converting meal photos into nutrition values, it
             simplifies carb counting and generates personalized 
             insulin guidance without drowning users in numbers.
@@ -199,6 +198,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/cenker-akan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/CenkerAkan" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
             <div className="team-member">
@@ -208,6 +208,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/umut-can-bolat-0ab877218/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/UmutCan00" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://docs.google.com/document/d/1gunUc-973VoA2AXYn7bXP27eVtiUQWsReWrNUcNsZPo/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
             <div className="team-member">
@@ -217,6 +218,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/umut-bora-%C3%A7akmak-a0931a232/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/UBoraCakmak" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
             <div className="team-member">
@@ -226,6 +228,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/perit-din%C3%A7er-5a17b5238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/perit-dincer" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
             <div className="team-member">
@@ -235,6 +238,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/ahmet-tar%C4%B1k-u%C3%A7ur-0a6835261/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/Tarikucur" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://docs.google.com/document/d/1gunUc-973VoA2AXYn7bXP27eVtiUQWsReWrNUcNsZPo/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
           </div>
@@ -279,10 +283,42 @@ const App = () => {
                 Detailed Design Report
               </a>
             </li>
+            <li>
+              <a
+                href="https://docs.google.com/document/d/1vk5dvKeqFdwM6WUWRlIcl21JSGjImTVarLI-KTQ-E3s/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Final Report
+              </a>
+            </li>
+          </ul>
+          <h2>Presentations</h2>
+          <p>Access our detailed presentations below:</p>
+          <ul className="reports-list">
+            <li>
+              <a
+                href="https://docs.google.com/presentation/d/1kyQ0oMZi-0RF0wJb-UYb2gFcy9TAOIdhy-IIBqN6kEU/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                491 Presentation
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://docs.google.com/presentation/d/1hMGwEallCq8Dpe954SUih97Ki267HCZxS3Lyjt1PnLw/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                492 Presentation
+              </a>
+            </li>
           </ul>
         </section>
+        
         <footer className="footer">
-          Diabytes © 2024
+          Diabytes, 2025
         </footer>
       </div>
     </div>
