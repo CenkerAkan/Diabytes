@@ -315,7 +315,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/umut-bora-%C3%A7akmak-a0931a232/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/UBoraCakmak" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="#" target="_blank" rel="noopener noreferrer">Logbook</a>
+                <a href="https://docs.google.com/document/d/1cEdGPWydpVErYklKP17c6fDQ7pvMXKq3CIS-teHzHbg/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
             <div className="team-member">
@@ -325,7 +325,7 @@ const App = () => {
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/perit-din%C3%A7er-5a17b5238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="https://github.com/perit-dincer" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="#" target="_blank" rel="noopener noreferrer">Logbook</a>
+                <a href="https://docs.google.com/document/d/1-vRU_JhaV8hj5lGa8ZS52mQULBNoU43Zz7ijYlPUuEc/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Logbook</a>
               </div>
             </div>
             <div className="team-member">
